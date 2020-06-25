@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QUANLYPHONGLABModelStoreContainer" CdmEntityContainer="QUANLYPHONGLABEntities">
+    <EntitySetMapping Name="CONGVIECs">
+      <EntityTypeMapping TypeName="QUANLYPHONGLABModel.CONGVIEC">
+        <MappingFragment StoreEntitySet="CONGVIEC">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenCV" ColumnName="TenCV" />
+          <ScalarProperty Name="MaDA" ColumnName="MaDA" />
+          <ScalarProperty Name="TaiLieuCV" ColumnName="TaiLieuCV" />
+          <ScalarProperty Name="CheckCV" ColumnName="CheckCV" />
+          <ScalarProperty Name="NgayHoanThanh" ColumnName="NgayHoanThanh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DUANs">
+      <EntityTypeMapping TypeName="QUANLYPHONGLABModel.DUAN">
+        <MappingFragment StoreEntitySet="DUAN">
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenDuAn" ColumnName="TenDuAn" />
+          <ScalarProperty Name="Nhom" ColumnName="Nhom" />
+          <ScalarProperty Name="MaNQL" ColumnName="MaNQL" />
+          <ScalarProperty Name="TaiLieuDA" ColumnName="TaiLieuDA" />
+          <ScalarProperty Name="NgayHoanThanh" ColumnName="NgayHoanThanh" />
+          <ScalarProperty Name="CheckDA" ColumnName="CheckDA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGUOIQUANLies">
+      <EntityTypeMapping TypeName="QUANLYPHONGLABModel.NGUOIQUANLY">
+        <MappingFragment StoreEntitySet="NGUOIQUANLY">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ThoiGianLam" ColumnName="ThoiGianLam" />
+          <ScalarProperty Name="ThoiGianNghi" ColumnName="ThoiGianNghi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANSUs">
+      <EntityTypeMapping TypeName="QUANLYPHONGLABModel.NHANSU">
+        <MappingFragment StoreEntitySet="NHANSU">
+          <ScalarProperty Name="MaNhom" ColumnName="MaNhom" />
+          <ScalarProperty Name="MaThanhVien" ColumnName="MaThanhVien" />
+          <ScalarProperty Name="MaNT" ColumnName="MaNT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHOMs">
+      <EntityTypeMapping TypeName="QUANLYPHONGLABModel.NHOM">
+        <MappingFragment StoreEntitySet="NHOM">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SoThanhVien" ColumnName="SoThanhVien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHANCONGs">
+      <EntityTypeMapping TypeName="QUANLYPHONGLABModel.PHANCONG">
+        <MappingFragment StoreEntitySet="PHANCONG">
+          <ScalarProperty Name="MaTV" ColumnName="MaTV" />
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="NgayHoanThanh" ColumnName="NgayHoanThanh" />
+          <ScalarProperty Name="CheckCV" ColumnName="CheckCV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QUANLYPHONGLABModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THANHVIENs">
+      <EntityTypeMapping TypeName="QUANLYPHONGLABModel.THANHVIEN">
+        <MappingFragment StoreEntitySet="THANHVIEN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ThoiGianLam" ColumnName="ThoiGianLam" />
+          <ScalarProperty Name="ThoiGianNghi" ColumnName="ThoiGianNghi" />
+          <ScalarProperty Name="Luong" ColumnName="Luong" />
+          <ScalarProperty Name="Thuong" ColumnName="Thuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C3B6C347-75A3-48B8-8C47-F33D299A3CC5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Project_QuanLyPhongLab</RootNamespace>
+    <AssemblyName>Project_QuanLyPhongLab</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iconphanmem.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\JobControllers.cs" />
+    <Compile Include="Controller\Project_QLPLAB.cs" />
+    <Compile Include="Controller\ThanhVienControllers.cs" />
+    <Compile Include="DSNhanVien.cs">
+      <DependentUpon>DSNhanVien.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSNhanVien.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSNhanVien.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CONGVIEC.cs">
+      <DependentUpon>QuanLyPhongLAB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DUAN.cs">
+      <DependentUpon>QuanLyPhongLAB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NGUOIQUANLY.cs">
+      <DependentUpon>QuanLyPhongLAB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NHANSU.cs">
+      <DependentUpon>QuanLyPhongLAB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NHOM.cs">
+      <DependentUpon>QuanLyPhongLAB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PHANCONG.cs">
+      <DependentUpon>QuanLyPhongLAB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuanLyPhongLAB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyPhongLAB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuanLyPhongLAB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyPhongLAB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuanLyPhongLAB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyPhongLAB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagram.cs">
+      <DependentUpon>QuanLyPhongLAB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\THANHVIEN.cs">
+      <DependentUpon>QuanLyPhongLAB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmCongViec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmCongViec.Designer.cs">
+      <DependentUpon>frmCongViec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmInData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmInData.Designer.cs">
+      <DependentUpon>frmInData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmMainGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmMainGUI.Designer.cs">
+      <DependentUpon>frmMainGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmThanhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmThanhVien.Designer.cs">
+      <DependentUpon>frmThanhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmNguoiQuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmNguoiQuanLy.Designer.cs">
+      <DependentUpon>frmNguoiQuanLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\frmThemCongViec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmThemCongViec.Designer.cs">
+      <DependentUpon>frmThemCongViec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmThemDuAn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmThemDuAn.Designer.cs">
+      <DependentUpon>frmThemDuAn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmThemNhom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmThemNhom.Designer.cs">
+      <DependentUpon>frmThemNhom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmThemSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmThemSinhVien.Designer.cs">
+      <DependentUpon>frmThemSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UCJob.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UCJob.Designer.cs">
+      <DependentUpon>UCJob.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportNhanVien.rdlc" />
+    <EmbeddedResource Include="View\frmCongViec.resx">
+      <DependentUpon>frmCongViec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmInData.resx">
+      <DependentUpon>frmInData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmMainGUI.resx">
+      <DependentUpon>frmMainGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmNguoiQuanLy.resx">
+      <DependentUpon>frmNguoiQuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmThanhVien.resx">
+      <DependentUpon>frmThanhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmThemCongViec.resx">
+      <DependentUpon>frmThemCongViec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmThemDuAn.resx">
+      <DependentUpon>frmThemDuAn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmThemNhom.resx">
+      <DependentUpon>frmThemNhom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmThemSinhVien.resx">
+      <DependentUpon>frmThemSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UCJob.resx">
+      <DependentUpon>UCJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DSNhanVien.xsc">
+      <DependentUpon>DSNhanVien.xsd</DependentUpon>
+    </None>
+    <None Include="DSNhanVien.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSNhanVien.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSNhanVien.xss">
+      <DependentUpon>DSNhanVien.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="Model\QuanLyPhongLAB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyPhongLAB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\QuanLyPhongLAB.edmx.diagram">
+      <DependentUpon>QuanLyPhongLAB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="iconphanmem.ico" />
+    <Content Include="Model\QuanLyPhongLAB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyPhongLAB.edmx</DependentUpon>
+      <LastGenOutput>QuanLyPhongLAB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\QuanLyPhongLAB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyPhongLAB.edmx</DependentUpon>
+      <LastGenOutput>QuanLyPhongLAB.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\LabManagerment.png" />
+    <None Include="Resources\Lab.png" />
+    <None Include="Resources\iconphanmem.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

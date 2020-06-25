@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLYPHONGLABModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CONGVIEC">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TenCV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaNTT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="CheckCV" Type="Int32" />
+    <NavigationProperty Name="THANHVIEN" Relationship="Self.FK__CONGVIEC__MaNTT__1FCDBCEB" FromRole="CONGVIEC" ToRole="THANHVIEN" />
+    <Property Name="NgayHoanThanh" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="DUAN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenDuAn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Nhom" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="NgayHoanThanh" Type="DateTime" Precision="0" />
+    <Property Name="CheckDA" Type="Int32" />
+    <NavigationProperty Name="NHOM1" Relationship="Self.FK__DUAN__Nhom__15502E78" FromRole="DUAN" ToRole="NHOM" />
+    <NavigationProperty Name="PHANCONGs" Relationship="Self.FK__PHANCONG__MaDA__1CF15040" FromRole="DUAN" ToRole="PHANCONG" />
+  </EntityType>
+  <EntityType Name="NGUOIQUANLY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianLam" Type="Time" Precision="7" />
+    <NavigationProperty Name="NHOMs" Relationship="Self.FK__NHOM__MaNQL__1273C1CD" FromRole="NGUOIQUANLY" ToRole="NHOM" />
+    <Property Name="Luong" Type="Double" />
+  </EntityType>
+  <EntityType Name="NHOM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaNQL" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="SoThanhVien" Type="Int32" />
+    <Property Name="MaNT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="DUANs" Relationship="Self.FK__DUAN__Nhom__15502E78" FromRole="NHOM" ToRole="DUAN" />
+    <NavigationProperty Name="NGUOIQUANLY" Relationship="Self.FK__NHOM__MaNQL__1273C1CD" FromRole="NHOM" ToRole="NGUOIQUANLY" />
+    <NavigationProperty Name="THANHVIENs" Relationship="Self.FK__THANHVIEN__MaNho__182C9B23" FromRole="NHOM" ToRole="THANHVIEN" />
+  </EntityType>
+  <EntityType Name="PHANCONG">
+    <Key>
+      <PropertyRef Name="MaTV" />
+      <PropertyRef Name="MaDA" />
+    </Key>
+    <Property Name="MaTV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaDA" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NgayHoanThanh" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="DUAN" Relationship="Self.FK__PHANCONG__MaDA__1CF15040" FromRole="PHANCONG" ToRole="DUAN" />
+    <NavigationProperty Name="THANHVIEN" Relationship="Self.FK__PHANCONG__MaTV__1BFD2C07" FromRole="PHANCONG" ToRole="THANHVIEN" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="THANHVIEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianLam" Type="Time" Precision="7" />
+    <Property Name="MaNT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="MaNhom" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="CONGVIECs" Relationship="Self.FK__CONGVIEC__MaNTT__1FCDBCEB" FromRole="THANHVIEN" ToRole="CONGVIEC" />
+    <NavigationProperty Name="NHOM" Relationship="Self.FK__THANHVIEN__MaNho__182C9B23" FromRole="THANHVIEN" ToRole="NHOM" />
+    <NavigationProperty Name="PHANCONGs" Relationship="Self.FK__PHANCONG__MaTV__1BFD2C07" FromRole="THANHVIEN" ToRole="PHANCONG" />
+    <NavigationProperty Name="THANHVIEN1" Relationship="Self.FK__THANHVIEN__MaNT__1920BF5C" FromRole="THANHVIEN" ToRole="THANHVIEN1" />
+    <NavigationProperty Name="THANHVIEN2" Relationship="Self.FK__THANHVIEN__MaNT__1920BF5C" FromRole="THANHVIEN1" ToRole="THANHVIEN" />
+    <Property Name="Luong" Type="Double" />
+    <Property Name="Thuong" Type="Double" />
+  </EntityType>
+  <Association Name="FK__CONGVIEC__MaNTT__1FCDBCEB">
+    <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="0..1" />
+    <End Role="CONGVIEC" Type="Self.CONGVIEC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THANHVIEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CONGVIEC">
+        <PropertyRef Name="MaNTT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DUAN__Nhom__15502E78">
+    <End Role="NHOM" Type="Self.NHOM" Multiplicity="0..1" />
+    <End Role="DUAN" Type="Self.DUAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHOM">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DUAN">
+        <PropertyRef Name="Nhom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHANCONG__MaDA__1CF15040">
+    <End Role="DUAN" Type="Self.DUAN" Multiplicity="1" />
+    <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DUAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PHANCONG">
+        <PropertyRef Name="MaDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NHOM__MaNQL__1273C1CD">
+    <End Role="NGUOIQUANLY" Type="Self.NGUOIQUANLY" Multiplicity="0..1" />
+    <End Role="NHOM" Type="Self.NHOM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGUOIQUANLY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NHOM">
+        <PropertyRef Name="MaNQL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THANHVIEN__MaNho__182C9B23">
+    <End Role="NHOM" Type="Self.NHOM" Multiplicity="0..1" />
+    <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHOM">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="THANHVIEN">
+        <PropertyRef Name="MaNhom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHANCONG__MaTV__1BFD2C07">
+    <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="1" />
+    <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THANHVIEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PHANCONG">
+        <PropertyRef Name="MaTV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THANHVIEN__MaNT__1920BF5C">
+    <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="0..1" />
+    <End Role="THANHVIEN1" Type="Self.THANHVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THANHVIEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="THANHVIEN1">
+        <PropertyRef Name="MaNT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QUANLYPHONGLABEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CONGVIECs" EntityType="Self.CONGVIEC" />
+    <EntitySet Name="DUANs" EntityType="Self.DUAN" />
+    <EntitySet Name="NGUOIQUANLies" EntityType="Self.NGUOIQUANLY" />
+    <EntitySet Name="NHOMs" EntityType="Self.NHOM" />
+    <EntitySet Name="PHANCONGs" EntityType="Self.PHANCONG" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="THANHVIENs" EntityType="Self.THANHVIEN" />
+    <AssociationSet Name="FK__CONGVIEC__MaNTT__1FCDBCEB" Association="Self.FK__CONGVIEC__MaNTT__1FCDBCEB">
+      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+      <End Role="CONGVIEC" EntitySet="CONGVIECs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DUAN__Nhom__15502E78" Association="Self.FK__DUAN__Nhom__15502E78">
+      <End Role="NHOM" EntitySet="NHOMs" />
+      <End Role="DUAN" EntitySet="DUANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHANCONG__MaDA__1CF15040" Association="Self.FK__PHANCONG__MaDA__1CF15040">
+      <End Role="DUAN" EntitySet="DUANs" />
+      <End Role="PHANCONG" EntitySet="PHANCONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NHOM__MaNQL__1273C1CD" Association="Self.FK__NHOM__MaNQL__1273C1CD">
+      <End Role="NGUOIQUANLY" EntitySet="NGUOIQUANLies" />
+      <End Role="NHOM" EntitySet="NHOMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THANHVIEN__MaNho__182C9B23" Association="Self.FK__THANHVIEN__MaNho__182C9B23">
+      <End Role="NHOM" EntitySet="NHOMs" />
+      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHANCONG__MaTV__1BFD2C07" Association="Self.FK__PHANCONG__MaTV__1BFD2C07">
+      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+      <End Role="PHANCONG" EntitySet="PHANCONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THANHVIEN__MaNT__1920BF5C" Association="Self.FK__THANHVIEN__MaNT__1920BF5C">
+      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+      <End Role="THANHVIEN1" EntitySet="THANHVIENs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3c6ab010491b43f884176730b63503ed" Name="Diagram1">
+        <EntityTypeShape EntityType="QUANLYPHONGLAB.CONGVIEC" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYPHONGLAB.DUAN" Width="1.5" PointX="1.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYPHONGLAB.NGUOIQUANLY" Width="1.5" PointX="1.5" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYPHONGLAB.NHANSU" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYPHONGLAB.NHOM" Width="1.5" PointX="1.5" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYPHONGLAB.PHANCONG" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYPHONGLAB.sysdiagram" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYPHONGLAB.THANHVIEN" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <AssociationConnector Association="QUANLYPHONGLAB.FK__CONGVIEC__MaDA__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYPHONGLAB.FK__PHANCONG__MaCV__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYPHONGLAB.FK__DUAN__MaNQL__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYPHONGLAB.FK__DUAN__Nhom__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYPHONGLAB.FK__NHANSU__MaNhom__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYPHONGLAB.FK__NHANSU__MaNT__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYPHONGLAB.FK__NHANSU__MaThanhV__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYPHONGLAB.FK__PHANCONG__MaTV__5812160E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

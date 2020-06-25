@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLYPHONGLABModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CONGVIEC">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenCV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaDA" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TaiLieuCV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CheckCV" Type="Int32" />
+    <Property Name="NgayHoanThanh" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="DUAN" Relationship="Self.FK__CONGVIEC__MaDA__5535A963" FromRole="CONGVIEC" ToRole="DUAN" />
+    <NavigationProperty Name="PHANCONGs" Relationship="Self.FK__PHANCONG__MaCV__59063A47" FromRole="CONGVIEC" ToRole="PHANCONG" />
+  </EntityType>
+  <EntityType Name="DUAN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenDuAn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nhom" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="MaNQL" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TaiLieuDA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NgayHoanThanh" Type="DateTime" Precision="0" />
+    <Property Name="CheckDA" Type="Int32" />
+    <NavigationProperty Name="CONGVIECs" Relationship="Self.FK__CONGVIEC__MaDA__5535A963" FromRole="DUAN" ToRole="CONGVIEC" />
+    <NavigationProperty Name="NGUOIQUANLY" Relationship="Self.FK__DUAN__MaNQL__52593CB8" FromRole="DUAN" ToRole="NGUOIQUANLY" />
+    <NavigationProperty Name="NHOM1" Relationship="Self.FK__DUAN__Nhom__5165187F" FromRole="DUAN" ToRole="NHOM" />
+    <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NGUOIQUANLY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianLam" Type="Time" Precision="7" />
+    <Property Name="ThoiGianNghi" Type="Time" Precision="7" />
+    <NavigationProperty Name="DUANs" Relationship="Self.FK__DUAN__MaNQL__52593CB8" FromRole="NGUOIQUANLY" ToRole="DUAN" />
+  </EntityType>
+  <EntityType Name="NHANSU">
+    <Key>
+      <PropertyRef Name="MaNhom" />
+      <PropertyRef Name="MaThanhVien" />
+    </Key>
+    <Property Name="MaNhom" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaThanhVien" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaNT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="NHOM" Relationship="Self.FK__NHANSU__MaNhom__4D94879B" FromRole="NHANSU" ToRole="NHOM" />
+    <NavigationProperty Name="THANHVIEN" Relationship="Self.FK__NHANSU__MaNT__5AEE82B9" FromRole="NHANSU" ToRole="THANHVIEN" />
+    <NavigationProperty Name="THANHVIEN1" Relationship="Self.FK__NHANSU__MaThanhV__4E88ABD4" FromRole="NHANSU" ToRole="THANHVIEN" />
+  </EntityType>
+  <EntityType Name="NHOM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SoThanhVien" Type="Int32" />
+    <NavigationProperty Name="DUANs" Relationship="Self.FK__DUAN__Nhom__5165187F" FromRole="NHOM" ToRole="DUAN" />
+    <NavigationProperty Name="NHANSUs" Relationship="Self.FK__NHANSU__MaNhom__4D94879B" FromRole="NHOM" ToRole="NHANSU" />
+  </EntityType>
+  <EntityType Name="PHANCONG">
+    <Key>
+      <PropertyRef Name="MaTV" />
+      <PropertyRef Name="MaCV" />
+    </Key>
+    <Property Name="MaTV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaCV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NgayHoanThanh" Type="DateTime" Precision="0" />
+    <Property Name="CheckCV" Type="Int32" />
+    <NavigationProperty Name="CONGVIEC" Relationship="Self.FK__PHANCONG__MaCV__59063A47" FromRole="PHANCONG" ToRole="CONGVIEC" />
+    <NavigationProperty Name="THANHVIEN" Relationship="Self.FK__PHANCONG__MaTV__5812160E" FromRole="PHANCONG" ToRole="THANHVIEN" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="THANHVIEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianLam" Type="Time" Precision="7" />
+    <Property Name="ThoiGianNghi" Type="Time" Precision="7" />
+    <Property Name="Luong" Type="Double" />
+    <Property Name="Thuong" Type="Double" />
+    <NavigationProperty Name="NHANSUs" Relationship="Self.FK__NHANSU__MaNT__5AEE82B9" FromRole="THANHVIEN" ToRole="NHANSU" />
+    <NavigationProperty Name="NHANSUs1" Relationship="Self.FK__NHANSU__MaThanhV__4E88ABD4" FromRole="THANHVIEN" ToRole="NHANSU" />
+    <NavigationProperty Name="PHANCONGs" Relationship="Self.FK__PHANCONG__MaTV__5812160E" FromRole="THANHVIEN" ToRole="PHANCONG" />
+  </EntityType>
+  <Association Name="FK__CONGVIEC__MaDA__5535A963">
+    <End Role="DUAN" Type="Self.DUAN" Multiplicity="0..1" />
+    <End Role="CONGVIEC" Type="Self.CONGVIEC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DUAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CONGVIEC">
+        <PropertyRef Name="MaDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHANCONG__MaCV__59063A47">
+    <End Role="CONGVIEC" Type="Self.CONGVIEC" Multiplicity="1" />
+    <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONGVIEC">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PHANCONG">
+        <PropertyRef Name="MaCV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DUAN__MaNQL__52593CB8">
+    <End Role="NGUOIQUANLY" Type="Self.NGUOIQUANLY" Multiplicity="0..1" />
+    <End Role="DUAN" Type="Self.DUAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGUOIQUANLY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DUAN">
+        <PropertyRef Name="MaNQL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DUAN__Nhom__5165187F">
+    <End Role="NHOM" Type="Self.NHOM" Multiplicity="0..1" />
+    <End Role="DUAN" Type="Self.DUAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHOM">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DUAN">
+        <PropertyRef Name="Nhom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NHANSU__MaNhom__4D94879B">
+    <End Role="NHOM" Type="Self.NHOM" Multiplicity="1" />
+    <End Role="NHANSU" Type="Self.NHANSU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHOM">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NHANSU">
+        <PropertyRef Name="MaNhom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NHANSU__MaNT__5AEE82B9">
+    <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="0..1" />
+    <End Role="NHANSU" Type="Self.NHANSU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THANHVIEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NHANSU">
+        <PropertyRef Name="MaNT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NHANSU__MaThanhV__4E88ABD4">
+    <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="1" />
+    <End Role="NHANSU" Type="Self.NHANSU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THANHVIEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NHANSU">
+        <PropertyRef Name="MaThanhVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHANCONG__MaTV__5812160E">
+    <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="1" />
+    <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THANHVIEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PHANCONG">
+        <PropertyRef Name="MaTV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QUANLYPHONGLABEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CONGVIECs" EntityType="Self.CONGVIEC" />
+    <EntitySet Name="DUANs" EntityType="Self.DUAN" />
+    <EntitySet Name="NGUOIQUANLies" EntityType="Self.NGUOIQUANLY" />
+    <EntitySet Name="NHANSUs" EntityType="Self.NHANSU" />
+    <EntitySet Name="NHOMs" EntityType="Self.NHOM" />
+    <EntitySet Name="PHANCONGs" EntityType="Self.PHANCONG" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="THANHVIENs" EntityType="Self.THANHVIEN" />
+    <AssociationSet Name="FK__CONGVIEC__MaDA__5535A963" Association="Self.FK__CONGVIEC__MaDA__5535A963">
+      <End Role="DUAN" EntitySet="DUANs" />
+      <End Role="CONGVIEC" EntitySet="CONGVIECs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHANCONG__MaCV__59063A47" Association="Self.FK__PHANCONG__MaCV__59063A47">
+      <End Role="CONGVIEC" EntitySet="CONGVIECs" />
+      <End Role="PHANCONG" EntitySet="PHANCONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DUAN__MaNQL__52593CB8" Association="Self.FK__DUAN__MaNQL__52593CB8">
+      <End Role="NGUOIQUANLY" EntitySet="NGUOIQUANLies" />
+      <End Role="DUAN" EntitySet="DUANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DUAN__Nhom__5165187F" Association="Self.FK__DUAN__Nhom__5165187F">
+      <End Role="NHOM" EntitySet="NHOMs" />
+      <End Role="DUAN" EntitySet="DUANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NHANSU__MaNhom__4D94879B" Association="Self.FK__NHANSU__MaNhom__4D94879B">
+      <End Role="NHOM" EntitySet="NHOMs" />
+      <End Role="NHANSU" EntitySet="NHANSUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NHANSU__MaNT__5AEE82B9" Association="Self.FK__NHANSU__MaNT__5AEE82B9">
+      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+      <End Role="NHANSU" EntitySet="NHANSUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NHANSU__MaThanhV__4E88ABD4" Association="Self.FK__NHANSU__MaThanhV__4E88ABD4">
+      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+      <End Role="NHANSU" EntitySet="NHANSUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHANCONG__MaTV__5812160E" Association="Self.FK__PHANCONG__MaTV__5812160E">
+      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+      <End Role="PHANCONG" EntitySet="PHANCONGs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
